@@ -1,6 +1,7 @@
 package service;
 
 import service.converters.XmlToJson;
+import service.converters.JsonToXml;
 
 import java.util.Scanner;
 
@@ -21,6 +22,8 @@ public class Main {
             }
             case 2:
             {
+                JsonToXml converter = new JsonToXml();
+                converter.convert("doramas.json", "outdoramas.xml");
                 break;
             }
             default:
