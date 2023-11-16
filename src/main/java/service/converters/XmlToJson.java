@@ -12,10 +12,10 @@ public class XmlToJson implements Converter{
     @Override
     public void convert(String inputFile, String outputFile){
         ReaderXml reader = new ReaderXml();
-        ArrayList<Dorama> doramas = (ArrayList<Dorama>) reader.readFile("src\\main\\recources\\" + inputFile);
+        ArrayList<Dorama> doramas = (ArrayList<Dorama>) reader.readFile("src\\main\\rec\\" + inputFile);
         ArrayList<Country> countries = convertStructure(doramas);
         WriterJson writer = new WriterJson();
-        writer.write(countries, "src\\main\\recources\\" + outputFile);
+        writer.write(countries, "src\\main\\rec\\" + outputFile);
     }
     private ArrayList<Country> convertStructure(ArrayList<Dorama> doramas){
         ArrayList<Country> countries = new ArrayList<>();
