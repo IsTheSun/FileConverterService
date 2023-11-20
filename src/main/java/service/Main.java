@@ -3,30 +3,18 @@ package service;
 import service.converters.XmlToJson;
 import service.converters.JsonToXml;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Выберите расширение файла, который будете преобразовывать:\n" +
-                "1).xml\n" +
-                "2).json");
-        int ex = in.nextInt();
-        switch (ex)
-        {
-            case 1:
-            {
-                XmlToJson converter = new XmlToJson();
-                converter.convert("doramas.xml", "outdoramas.json");
-                break;
-            }
-            case 2:
-            {
-                JsonToXml converter = new JsonToXml();
-                converter.convert("doramas.json", "outdoramas.xml");
-                break;
-            }
-            default:
+        if (args.length != 2){
+            System.out.println("Нужно указать 2 файла с расширениями!");
+        }
+        if (args[0].endsWith(".xml") && args[1].endsWith(".json")){
+            XmlToJson converter = new XmlToJson();
+            converter.convert(args[0], args[1]);
+        }
+        if (args[0].endsWith(".json") && args[1].endsWith(".xml")){
+            JsonToXml converter = new JsonToXml();
+            converter.convert(args[0], args[1]);
         }
     }
 }
