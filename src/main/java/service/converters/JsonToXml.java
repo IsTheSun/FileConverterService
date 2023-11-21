@@ -11,10 +11,10 @@ public class JsonToXml implements Converter{
     @Override
     public void convert(String inputFile, String outputFile) {
         ReaderJson reader = new ReaderJson();
-        ArrayList<Country> countries = (ArrayList<Country>) reader.readFile("src\\main\\rec\\" + inputFile);
+        ArrayList<Country> countries = (ArrayList<Country>) reader.readFile(inputFile);
         ArrayList<Dorama> doramas = convertCountries(countries);
         WriterXml writer = new WriterXml();
-        writer.write(doramas, "src\\main\\rec\\" + outputFile);
+        writer.write(doramas, outputFile);
     }
     private ArrayList<Dorama> convertCountries(ArrayList<Country> countries){
         ArrayList<Dorama> doramas = new ArrayList<>();

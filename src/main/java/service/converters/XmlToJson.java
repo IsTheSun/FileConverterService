@@ -8,14 +8,13 @@ import service.writers.WriterJson;
 import java.util.ArrayList;
 
 public class XmlToJson implements Converter{
-
     @Override
     public void convert(String inputFile, String outputFile){
         ReaderXml reader = new ReaderXml();
-        ArrayList<Dorama> doramas = (ArrayList<Dorama>) reader.readFile("src\\main\\rec\\" + inputFile);
+        ArrayList<Dorama> doramas = (ArrayList<Dorama>) reader.readFile(inputFile);
         ArrayList<Country> countries = convertStructure(doramas);
         WriterJson writer = new WriterJson();
-        writer.write(countries, "src\\main\\rec\\" + outputFile);
+        writer.write(countries, outputFile);
     }
     private ArrayList<Country> convertStructure(ArrayList<Dorama> doramas){
         ArrayList<Country> countries = new ArrayList<>();
